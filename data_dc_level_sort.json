@@ -1,0 +1,608 @@
+{
+    "data_challenge_level": [
+        {
+            "level_date": 20230101,
+            "level_id": 200020
+        },
+        {
+            "level_date": 20230102,
+            "level_id": 200025
+        },
+        {
+            "level_date": 20230103,
+            "level_id": 200027
+        },
+        {
+            "level_date": 20230104,
+            "level_id": 200029
+        },
+        {
+            "level_date": 20230105,
+            "level_id": 200064
+        },
+        {
+            "level_date": 20230106,
+            "level_id": 200002
+        },
+        {
+            "level_date": 20230107,
+            "level_id": 200057
+        },
+        {
+            "level_date": 20230108,
+            "level_id": 200060
+        },
+        {
+            "level_date": 20230109,
+            "level_id": 200005
+        },
+        {
+            "level_date": 20230110,
+            "level_id": 200004
+        },
+        {
+            "level_date": 20230111,
+            "level_id": 200011
+        },
+        {
+            "level_date": 20230112,
+            "level_id": 200017
+        },
+        {
+            "level_date": 20230113,
+            "level_id": 200079
+        },
+        {
+            "level_date": 20230114,
+            "level_id": 200001
+        },
+        {
+            "level_date": 20230115,
+            "level_id": 200015
+        },
+        {
+            "level_date": 20230116,
+            "level_id": 200016
+        },
+        {
+            "level_date": 20230117,
+            "level_id": 200012
+        },
+        {
+            "level_date": 20230118,
+            "level_id": 200018
+        },
+        {
+            "level_date": 20230119,
+            "level_id": 200019
+        },
+        {
+            "level_date": 20230120,
+            "level_id": 200014
+        },
+        {
+            "level_date": 20230121,
+            "level_id": 200021
+        },
+        {
+            "level_date": 20230122,
+            "level_id": 200022
+        },
+        {
+            "level_date": 20230123,
+            "level_id": 200023
+        },
+        {
+            "level_date": 20230124,
+            "level_id": 200024
+        },
+        {
+            "level_date": 20230125,
+            "level_id": 200039
+        },
+        {
+            "level_date": 20230126,
+            "level_id": 200026
+        },
+        {
+            "level_date": 20230127,
+            "level_id": 200003
+        },
+        {
+            "level_date": 20230128,
+            "level_id": 200028
+        },
+        {
+            "level_date": 20230129,
+            "level_id": 200036
+        },
+        {
+            "level_date": 20230130,
+            "level_id": 200030
+        },
+        {
+            "level_date": 20230131,
+            "level_id": 200006
+        },
+        {
+            "level_date": 20230201,
+            "level_id": 200071
+        },
+        {
+            "level_date": 20230202,
+            "level_id": 200033
+        },
+        {
+            "level_date": 20230203,
+            "level_id": 200034
+        },
+        {
+            "level_date": 20230204,
+            "level_id": 200035
+        },
+        {
+            "level_date": 20230205,
+            "level_id": 200036
+        },
+        {
+            "level_date": 20230206,
+            "level_id": 200037
+        },
+        {
+            "level_date": 20230207,
+            "level_id": 200038
+        },
+        {
+            "level_date": 20230208,
+            "level_id": 200007
+        },
+        {
+            "level_date": 20230209,
+            "level_id": 200040
+        },
+        {
+            "level_date": 20230210,
+            "level_id": 200041
+        },
+        {
+            "level_date": 20230211,
+            "level_id": 200042
+        },
+        {
+            "level_date": 20230212,
+            "level_id": 200072
+        },
+        {
+            "level_date": 20230213,
+            "level_id": 200044
+        },
+        {
+            "level_date": 20230214,
+            "level_id": 200045
+        },
+        {
+            "level_date": 20230215,
+            "level_id": 200046
+        },
+        {
+            "level_date": 20230216,
+            "level_id": 200047
+        },
+        {
+            "level_date": 20230217,
+            "level_id": 200048
+        },
+        {
+            "level_date": 20230218,
+            "level_id": 200049
+        },
+        {
+            "level_date": 20230219,
+            "level_id": 200050
+        },
+        {
+            "level_date": 20230220,
+            "level_id": 200051
+        },
+        {
+            "level_date": 20230221,
+            "level_id": 200052
+        },
+        {
+            "level_date": 20230222,
+            "level_id": 200053
+        },
+        {
+            "level_date": 20230223,
+            "level_id": 200054
+        },
+        {
+            "level_date": 20230224,
+            "level_id": 200055
+        },
+        {
+            "level_date": 20230225,
+            "level_id": 200056
+        },
+        {
+            "level_date": 20230226,
+            "level_id": 200008
+        },
+        {
+            "level_date": 20230227,
+            "level_id": 200058
+        },
+        {
+            "level_date": 20230228,
+            "level_id": 200059
+        },
+        {
+            "level_date": 20230301,
+            "level_id": 200009
+        },
+        {
+            "level_date": 20230302,
+            "level_id": 200061
+        },
+        {
+            "level_date": 20230303,
+            "level_id": 200073
+        },
+        {
+            "level_date": 20230304,
+            "level_id": 200063
+        },
+        {
+            "level_date": 20230305,
+            "level_id": 200010
+        },
+        {
+            "level_date": 20230306,
+            "level_id": 200065
+        },
+        {
+            "level_date": 20230307,
+            "level_id": 200066
+        },
+        {
+            "level_date": 20230308,
+            "level_id": 200067
+        },
+        {
+            "level_date": 20230309,
+            "level_id": 200068
+        },
+        {
+            "level_date": 20230310,
+            "level_id": 200069
+        },
+        {
+            "level_date": 20230311,
+            "level_id": 200070
+        },
+        {
+            "level_date": 20230312,
+            "level_id": 200032
+        },
+        {
+            "level_date": 20230313,
+            "level_id": 200043
+        },
+        {
+            "level_date": 20230314,
+            "level_id": 200074
+        },
+        {
+            "level_date": 20230315,
+            "level_id": 200062
+        },
+        {
+            "level_date": 20230316,
+            "level_id": 200084
+        },
+        {
+            "level_date": 20230317,
+            "level_id": 200076
+        },
+        {
+            "level_date": 20230318,
+            "level_id": 200077
+        },
+        {
+            "level_date": 20230319,
+            "level_id": 200078
+        },
+        {
+            "level_date": 20230320,
+            "level_id": 200013
+        },
+        {
+            "level_date": 20230321,
+            "level_id": 200080
+        },
+        {
+            "level_date": 20230322,
+            "level_id": 200081
+        },
+        {
+            "level_date": 20230323,
+            "level_id": 200082
+        },
+        {
+            "level_date": 20230324,
+            "level_id": 200083
+        },
+        {
+            "level_date": 20230325,
+            "level_id": 200075
+        },
+        {
+            "level_date": 20230326,
+            "level_id": 200085
+        },
+        {
+            "level_date": 20230327,
+            "level_id": 200086
+        },
+        {
+            "level_date": 20230328,
+            "level_id": 200087
+        },
+        {
+            "level_date": 20230329,
+            "level_id": 200088
+        },
+        {
+            "level_date": 20230330,
+            "level_id": 200089
+        },
+        {
+            "level_date": 20230331,
+            "level_id": 200090
+        },
+        {
+            "level_date": 20230401,
+            "level_id": 200093
+        },
+        {
+            "level_date": 20230402,
+            "level_id": 200094
+        },
+        {
+            "level_date": 20230403,
+            "level_id": 200095
+        },
+        {
+            "level_date": 20230404,
+            "level_id": 200096
+        },
+        {
+            "level_date": 20230405,
+            "level_id": 200097
+        },
+        {
+            "level_date": 20230406,
+            "level_id": 200098
+        },
+        {
+            "level_date": 20230407,
+            "level_id": 200099
+        },
+        {
+            "level_date": 20230408,
+            "level_id": 200100
+        },
+        {
+            "level_date": 20230409,
+            "level_id": 200101
+        },
+        {
+            "level_date": 20230410,
+            "level_id": 200102
+        },
+        {
+            "level_date": 20230411,
+            "level_id": 200103
+        },
+        {
+            "level_date": 20230412,
+            "level_id": 200104
+        },
+        {
+            "level_date": 20230413,
+            "level_id": 200105
+        },
+        {
+            "level_date": 20230414,
+            "level_id": 200106
+        },
+        {
+            "level_date": 20230415,
+            "level_id": 200107
+        },
+        {
+            "level_date": 20230416,
+            "level_id": 200108
+        },
+        {
+            "level_date": 20230417,
+            "level_id": 200109
+        },
+        {
+            "level_date": 20230418,
+            "level_id": 200110
+        },
+        {
+            "level_date": 20230419,
+            "level_id": 200111
+        },
+        {
+            "level_date": 20230420,
+            "level_id": 200112
+        },
+        {
+            "level_date": 20230421,
+            "level_id": 200113
+        },
+        {
+            "level_date": 20230422,
+            "level_id": 200114
+        },
+        {
+            "level_date": 20230423,
+            "level_id": 200115
+        },
+        {
+            "level_date": 20230424,
+            "level_id": 200116
+        },
+        {
+            "level_date": 20230425,
+            "level_id": 200117
+        },
+        {
+            "level_date": 20230426,
+            "level_id": 200118
+        },
+        {
+            "level_date": 20230427,
+            "level_id": 200119
+        },
+        {
+            "level_date": 20230428,
+            "level_id": 200120
+        },
+        {
+            "level_date": 20230429,
+            "level_id": 200121
+        },
+        {
+            "level_date": 20230430,
+            "level_id": 200122
+        },
+        {
+            "level_date": 20230501,
+            "level_id": 200123
+        },
+        {
+            "level_date": 20230502,
+            "level_id": 200124
+        },
+        {
+            "level_date": 20230503,
+            "level_id": 200125
+        },
+        {
+            "level_date": 20230504,
+            "level_id": 200126
+        },
+        {
+            "level_date": 20230505,
+            "level_id": 200127
+        },
+        {
+            "level_date": 20230506,
+            "level_id": 200128
+        },
+        {
+            "level_date": 20230507,
+            "level_id": 200129
+        },
+        {
+            "level_date": 20230508,
+            "level_id": 200130
+        },
+        {
+            "level_date": 20230509,
+            "level_id": 200131
+        },
+        {
+            "level_date": 20230510,
+            "level_id": 200132
+        },
+        {
+            "level_date": 20230511,
+            "level_id": 200133
+        },
+        {
+            "level_date": 20230512,
+            "level_id": 200134
+        },
+        {
+            "level_date": 20230513,
+            "level_id": 200135
+        },
+        {
+            "level_date": 20230514,
+            "level_id": 200136
+        },
+        {
+            "level_date": 20230515,
+            "level_id": 200137
+        },
+        {
+            "level_date": 20230516,
+            "level_id": 200138
+        },
+        {
+            "level_date": 20230517,
+            "level_id": 200139
+        },
+        {
+            "level_date": 20230518,
+            "level_id": 200140
+        },
+        {
+            "level_date": 20230519,
+            "level_id": 200141
+        },
+        {
+            "level_date": 20230520,
+            "level_id": 200142
+        },
+        {
+            "level_date": 20230521,
+            "level_id": 200143
+        },
+        {
+            "level_date": 20230522,
+            "level_id": 200144
+        },
+        {
+            "level_date": 20230523,
+            "level_id": 200145
+        },
+        {
+            "level_date": 20230524,
+            "level_id": 200146
+        },
+        {
+            "level_date": 20230525,
+            "level_id": 200147
+        },
+        {
+            "level_date": 20230526,
+            "level_id": 200148
+        },
+        {
+            "level_date": 20230527,
+            "level_id": 200149
+        },
+        {
+            "level_date": 20230528,
+            "level_id": 200150
+        },
+        {
+            "level_date": 20230529,
+            "level_id": 200151
+        },
+        {
+            "level_date": 20230530,
+            "level_id": 200152
+        },
+        {
+            "level_date": 20230531,
+            "level_id": 200153
+        }
+    ]
+}
