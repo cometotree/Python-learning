@@ -1,21 +1,19 @@
 {
-    "apple":2,
-    "banana":
-    {
-        "color":"yellow",
-        "shape":"moon",
-        "origin":
-        [
+    "apple": 2,
+    "banana": {
+        "color": "yellow",
+        "shape": "moon",
+        "origin": [
             {
-                "city":"sanya",
-                "direction":"south"
+                "city": "sanya",
+                "direction": "south"
             },
             {
-                "city":"qingdao",
-                "direction":"east"
+                "city": "qingdao",
+                "direction": "east"
             }
         ]
     },
-    "orange":
-    {}
+    "orange": {},
+    "watermelon":{}
 }
