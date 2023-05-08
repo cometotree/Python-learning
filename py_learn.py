@@ -2,10 +2,10 @@ import pandas as pd
 import json
 
 a = 6
-print (a)
+print(a)
 print(type(a))
 a = "string"
-print (a)
+print(a)
 print(type(a))
 
 
@@ -25,5 +25,20 @@ for user, status in users.items():
 
 print(active_users)
 
-number_collection = {"a":6,"b":7}
+number_collection = {"a": 6, "b": 7}
 print(number_collection.items())
+
+a = 6
+if(a == 6):
+    print("yes")
+print(str(a)+"no")
+
+
+for num in range(2, 10):
+    if num % 2 == 0:
+        print("Found an even number", num)
+    else:
+        print("Found an odd number", num)
+
+a = (2, 3, 4)
+print(type(a))
