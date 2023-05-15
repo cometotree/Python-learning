@@ -1,116 +1,96 @@
 目标，10个以上，根据实现情况打钩
-1. 推送时间：支持绝对时间推送和相对时间推送
-2. 推送频率：可以调整推送频率高低（活跃度维度，周维度）
-3. 根据内容优先级推送（冲突处理）
-4. 文案在线调，文案支持动态内容替换
-5. 不同玩法分开配置
-6. when-action描述推送
-7. 根据用户喜好或过去时间的行为推送内容
-8. 休息时间不推送
-9. 支持同一类型推送的文案多样性
-10. 推送队列：同一时间产生多个推送，是否以队列形式存储
+1. ✅推送时间：支持绝对时间推送和相对时间推送
+2. ❌推送频率：可以动态调整推送频率高低
+3. ✅根据内容优先级推送（冲突处理）
+4. ✅文案在线调，文案支持动态内容替换
+5. ❌不同玩法按系统分开配置
+6. ❌推送个性化
+7. ✅支持推送附带图片
+8. ✅支持多语言配置
+9. ✅支持同一类型推送的文案多样性
+10. ✅高敏感放topic
+11. ✅模型不要过于复杂
 
 
-9. 高敏感放topic
-10. 模型不要过于复杂
-
-
-100分步骤
-1. 列目标：列目标方法论：模型需要支持的功能
-2. 宏观结构、模型来支持这些目标，可以写多个方案
-3. 名字起好
-
-
-方案A
-1. 宏观策略 （global_strategy), 微观策略（local_strategy when-action)
-2. 每个玩法单独的策略，所有推送都是when-action结构
-3. 冲突策略
-4. 文案-高敏感
-
-
-push包内配置
-1. "push_local_time_range":["9:00","20:00"]
-
-
-------------------------------------------
-------------------------------------------
-
-***建模1：事件驱动。定义推送事件，事件发生时立刻推送，通过宏观微观策略控制推送的密度。
+***建模2
 
 Topic: push_strategy
 
-X1: macro_strategy //宏观策略
+X1: push_non_realtime //非实时性推送
 {
-    "push_min_interval": 3600, //推送最小间隔时间（s)
-    "push_max_times_daily": 2, //每天最大推送次数
-    "push_sound":"a.mp3",
-    "gameplay_like_switch":"on/off", //不喜欢的玩法不推送相关消息的开关
-    "push_day_sequence":[1,2,4,7], //连续不登录游戏时的按天推送的序列
-    "优先级"
-}
-
-X2: micro_strategy //微观策略
-{
-
-}
-
-X3: push_config_by_type //推送消息定义，根据功能划分的when-action结构
-{
-    "general": //常规推送
+    "push_day_interval_seq":[0,1,2,3,4,7], //连续不登录游戏时,每隔多少天会产生推送
+    "push_time":["12:50","18:50"], //当日推送时间点
+    "push_wt":[20,40,40], //不同消息的权重
+    "push_list":
     [
-        {//日固定时间推送
-            "when":"12:00",
+        {//一般性消息，和具体功能无关，如“锻炼你的大脑”，“放松一下”
+            "push_id":101,
+            "when":"full_time",
             "push_msg_id":[1001,1002,1003,1004]
         },
-        {//节日推送
-            "when":"12.25-08:00",
-            "push_msg_id":[1003,1004]
-        },
-        {//退出游戏后xx时间
-            "when":"quit_game_by_time",
-            "param":3600,
-            "push_msg_id":[1003,1004]
-        }
-    ],
-    "maingame": //主玩法
-    [
-        {
-            "when":"almost_break_record_last_session", //上一次退出游戏时接近破记录
+        {//dc解锁且当天未完成
+            "push_id":102,
+            "when":"dc_ready",
             "push_msg_id":[1001,1002]
-        }
-    ],
-    "events": //活动
-    [
-        {
-            "when":"events_new_unlock",
-            "push_id":[1001,1002]
         },
-        {
-            "when":"events_almost_end",
-            "push_id":[1001,1002]
-        }
-    ],
-    "dc": //每日挑战
-    [
-        {
-            "when":"",
-            "push_msg_id"
-        }
-    ],
-    "minigame": //小游戏
-    [
-        {
-            "when":"",
-            "push_msg_id"
+        {//minigame解锁且当天未玩
+            "push_id":103,
+            "when":"minigame_ready",
+            "push_msg_id":[1003,1004]
         }
     ]
 }
 
-push_msg //推送内容
+X2: push_realtime //实时性推送
+{
+    "push_priority_by_id":[104,105,106,107],
+    "push_list":
+    [
+        {//新活动开始
+            "push_id":104,
+            "when":"events_new_unlock",
+            "push_msg_id":[1001,1002]
+        },  
+        {//体力恢复满
+            "push_id":105,
+            "when":"life_full",
+            "push_msg_id":[1003,1004]
+        },    
+        {//退出游戏后10s
+            "push_id":106,
+            "when":"quit_game_by_time",
+            "push_msg_id":[1003,1004]
+        },
+        {//节日推送
+            "push_id":107,
+            "when":"12.25-08:00",
+            "push_msg_id":[1003,1004]
+        }  
+    ]
+}
+
+X3: macro_strategy //宏观策略
+{
+    "push_min_interval": 3600, //推送最小间隔时间（s)
+    "push_max_times_daily": 2, //每天最大推送次数
+    "push_sound":"push_sound.mp3", //推送音效
+    "push_available_time_range":["8:00","22:00"], //可以产生推送的时间
+
+    "活跃度":[2,3,4,5], //最近10天的活跃次数
+    "活跃度对应的push密度缩放系数":[1,2,3,4], //day_interval_seq基础上增加间隔天数
+}
+
+X4: micro_strategy //微观策略
+{
+
+}
+
+
+X5: push_msg //推送内容
 {
     [
         {
-            "id":1001,
+            "msg_id":1001,
             "type":"",
             "image":"",
             "title":
@@ -137,11 +117,11 @@ push_msg //推送内容
             ],
         },
         {
-            "id":1002,
+            "msg_id":1002,
             ...
         },
         {
-            "id":1003,
+            "msg_id":1003,
             ...
         }
     ]
