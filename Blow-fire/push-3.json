@@ -1,10 +1,10 @@
 目标，10个以上，根据实现情况打钩
 1. ✅推送时间：支持绝对时间推送和相对时间推送
-2. ❌推送频率：可以动态调整推送频率高低
+2. ✅推送频率：可以动态调整推送频率高低（活跃度维度，周维度）
 3. ✅推送优先级
 4. ✅文案在线调，文案支持动态内容替换
 5. ❌不同玩法按系统分开配置
-6. ❌推送个性化，根据用户习惯推送
+6. ❌推送个性化
 7. ✅支持推送附带图片
 8. ✅支持多语言配置
 9. ✅支持同一类型推送的文案多样性
@@ -12,82 +12,62 @@
 11. ✅模型不要过于复杂
 
 
-***建模1
+
+***建模3
 
 Topic: push_strategy
 
-X1: push_fixed_time //固定时间推送
+X1: push_list //推送列表
 {
-    "push_day_interval_seq":[0,1,1,2,3,5,8], //连续不登录游戏时,每隔n天会产生推送
-    "push_time":["12:50","18:50"], //推送时间点
-    "push_weight":[20,40,40], //不同消息的权重
-    "push_list":
-    [
-        {//一般性消息，和具体功能无关，如“锻炼你的大脑”，“放松一下”
+
+        {//日常推送：玩DC、Mini-game、锻炼大脑、放松一下...
             "push_id":101,
-            "when":"full_time",
+            "push_type":"non-realtime"
+            "when":"18:58",
             "push_msg_id":1001
         },
-        {//dc解锁且当天未完成
+        {//节日推送：新年、万圣节...
             "push_id":102,
-            "when":"dc_ready",
-            "push_msg_id":1002
+            "push_type":"realtime",
+            "when":"1.1-08:00",
+            "push_msg_id":[1002,1003]
         },
-        {//minigame解锁且当天未玩
+        {//根据上一次的游戏行为产生的推送：生命次数恢复满、退出游戏后10分钟、差一点破记录、单词提示...
             "push_id":103,
-            "when":"minigame_ready",
-            "push_msg_id":1003
-        }
-    ]
-}
-
-X2: push_realtime //实时性推送
-{
-    "push_priority_by_id":[104,105,106,107],
-    "push_list":
-    [
-        {//新活动开始
-            "push_id":104,
-            "when":"events_new_unlock",
-            "push_msg_id":[1001,1002]
-        },  
-        {//体力恢复满
-            "push_id":105,
-            "when":"life_full",
-            "push_msg_id":[1003,1004]
-        },    
-        {//退出游戏后10s
-            "push_id":106,
-            "when":"quit_game_by_time",
-            "push_msg_id":[1003,1004]
+            "push_type":"realtime",
+            "when":"life_is_full", 
+            "push_msg_id":1004
         },
-        {//节日推送
-            "push_id":107,
-            "when":"12.25-08:00",
-            "push_msg_id":[1003,1004]
-        }  
-    ]
+        {//活动推送：新Journey开始、新的比赛场开始...
+            "push_id":104,
+            "push_type":"realtime",
+            "when":"events_new_unlock",
+            "push_msg_id":1005
+        }
 }
 
-X3: macro_strategy //宏观策略
+X2: macro_strategy //宏观策略
 {
     "push_min_interval": 3600, //推送最小间隔时间（s)
     "push_max_times_daily": 2, //每天最大推送次数
+    "push_priority_by_id":[104,103,102,101], //推送优先级
+    "push_day_interval_nonrealtime":[0,1,1,2,3,5,8], //针对非实时推送，连续不登录游戏时，每隔n天产生推送的序列
+
     "push_sound":"push_sound.mp3", //推送音效
-    "push_available_time_range":["8:00","22:00"], //可以产生推送的时间
 }
 
-X4: micro_strategy //微观策略
+X3: micro_strategy //微观策略
 {
     "high_activity":
     {
         "活跃度":10, //活跃度大于10
         "天维度的活跃度缩放系数":[1,2,3,4], //day_interval_seq基础上增加间隔时间
+        "每日推送最大次数变化":-1, //adjust
     }
 }
 
 
-X5: push_msg //推送内容
+X4: push_msg //推送内容
 {
     [
         {

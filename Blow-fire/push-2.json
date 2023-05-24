@@ -1,39 +1,49 @@
 目标，10个以上，根据实现情况打钩
-1. ✅推送时间：支持绝对时间推送和相对时间推送
-2. ❌推送频率：可以动态调整推送频率高低（活跃度维度，周维度）
-3. ✅根据内容优先级推送（冲突处理）
-4. ✅文案在线调，文案支持动态内容替换
-5. ✅不同玩法按系统分开配置
-6. ❌推送个性化
-7. ✅支持推送附带图片
-8. ✅支持多语言配置
-9. ✅支持同一类型推送的文案多样性
-10. ✅高敏感放topic
-11. ✅模型不要过于复杂
+目标：范围广，不要特别具体，可以举例子
 
+1. ***文案和时机做充分的实验，测试表现。
+2.✅推送时间：支持绝对时间推送和相对时间推送(支持灵活的推送时间、频率，例如：固定时间，实时推送，延迟一段时间推送)
+2. ✅推送频率：可以动态调整推送频率高低（活跃度维度，周维度）
+3. ✅推送优先级：解决push冲突
+4. ✅文案在线调，文案支持动态内容替换
+5. ✅按feature系统分开配置
+6. 推送个性化（后续实现）
+7. ✅支持多样性的push（例如：图片，声音）
+8. ✅支持多语言配置
+9. ✅支持同一类型推送的文案多样性，一条push可以包含多条push文案
+10. ✅高敏感因子尽量做到可调
+11. ✅模型不要过于复杂
+12. 监控msg点击率
+https://www.blog.udonis.co/mobile-marketing/mobile-games/mobile-game-push-notifications
+
+文案目标
+1. 避免推送那些无痛痒的、无关的内容。
+2. 根据用户行为、喜好、身份推送内容。
 
 
 ***建模2
+todo
+1. push_id,msg_id 单层
+2. 理清高敏感因子：时机，内容，密度，个性化
+3. 迭代文案更重要，怎样建模测试好的文案和时机
+4. firebase push
 
 Topic: push_strategy
 
-X1: push_list //推送列表，根据功能划分的when-action结构
+X1: push_list //推送列表，定义***时机推送***内容
 {
     "general": //常规
     [
-        {//固定时间推送
+        {
             "push_id":101,
-            "when":"18:58",
-            "push_msg_id":[1001,1002,1003,1004]
+            "push_type":"non-realtime",
+            "when":"18:58", //锻炼大脑
+            "push_msg_id":[1001]
         },
-        {//节日推送
+        {
             "push_id":102,
-            "when":"12.25-08:00",
-            "push_msg_id":[1003,1004]
-        },
-        {//退出游戏后xx时间
-            "push_id":103,
-            "when":"quit_game_by_time",
+            "push_type":"realtime",
+            "when":"12.25-08:00", //节日推送
             "push_msg_id":[1003,1004]
         }
     ],
@@ -41,28 +51,26 @@ X1: push_list //推送列表，根据功能划分的when-action结构
     [
         {
             "push_id":104,
-            "when":"almost_break_record_last_session", //上一次退出游戏时接近破记录
-            "push_msg_id":[1001,1002]
-        }
+            "push_type":"realtime",
+            "when":"life_is_full", //生命次数回满
+            "push_msg_id":[1001]
+        },
     ],
     "events": //活动
     [
         {
             "push_id":105,
+            "push_type":"realtime",
             "when":"events_new_unlock",
-            "push_msg_id":[1001,1002]
-        },
-        {
-            "push_id":106,
-            "when":"events_almost_end",
-            "push_msg_id":[1001,1002]
+            "push_msg_id":[1001]
         }
     ],
     "dc": //每日挑战
     [
         {
             "push_id":107,
-            "when":"",
+            "push_type":"non-realtime"
+            "when":"dc_ready",
             "push_msg_id":""
         }
     ],
@@ -70,7 +78,8 @@ X1: push_list //推送列表，根据功能划分的when-action结构
     [
         {
             "push_id":108,
-            "when":"",
+            "push_type":"non-realtime"
+            "when":"mini-game_ready",
             "push_msg_id":""
         }
     ]
@@ -80,24 +89,20 @@ X2: macro_strategy //宏观策略
 {
     "push_min_interval": 3600, //推送最小间隔时间（s)
     "push_max_times_daily": 2, //每天最大推送次数
+    "push_priority_by_id":[105,104,102,104,102,101], //推送优先级
+    "push_day_interval_nonrealtime":[0,1,1,2,3,5,8], //针对非实时推送，连续不登录游戏时，每隔n天产生推送的序列
+
     "push_sound":"push_sound.mp3", //推送音效
-    "push_available_time_range":["8:00","22:00"], //可以产生推送的时间
-
-    "push_day_interval_sequence":[0,1,1,2,3,5,8], //连续不登录游戏时,每隔n天产生推送的序列
-    "push_priority_by_id":[107,108,106,104,102,101], //推送优先级
-
-
 }
 
 X3: micro_strategy //微观策略
 {
-    "push_realtime_by_id":[103,105],
     "high_activity":
     {
         "活跃度":10, //活跃度大于10
-        "天维度的活跃度缩放系数":[1,2,3,4], //day_interval_seq基础上增加间隔时间
+        "天维度的活跃度缩放系数":1, //day_interval_seq基础上增加间隔时间
+        "每日推送最大次数变化":-1, //adjust
     }
-
 }
 
 
