@@ -83,16 +83,21 @@ X2: macro_strategy //宏观策略
     "push_sound":"push_sound.mp3", //推送音效
     "push_available_time_range":["8:00","22:00"], //可以产生推送的时间
 
-    "push_day_interval_sequence":[0,1,2,3,4,7], //连续不登录游戏时,每隔多少天会产生推送
+    "push_day_interval_sequence":[0,1,1,2,3,5,8], //连续不登录游戏时,每隔n天产生推送的序列
     "push_priority_by_id":[107,108,106,104,102,101], //推送优先级
 
-    "活跃度区间":[2,3,4,5], //值越大活跃度越高
-    "天维度的活跃度缩放系数":[1,2,3,4], //day_interval_seq基础上增加间隔时间
+
 }
 
 X3: micro_strategy //微观策略
 {
-    "push_realtime_by_id":[103,105]
+    "push_realtime_by_id":[103,105],
+    "high_activity":
+    {
+        "活跃度":10, //活跃度大于10
+        "天维度的活跃度缩放系数":[1,2,3,4], //day_interval_seq基础上增加间隔时间
+    }
+
 }
 
 
@@ -101,7 +106,6 @@ X4: push_msg //推送内容
     [
         {
             "msg_id":1001,
-            "type":"",
             "image":"",
             "title":
             [
